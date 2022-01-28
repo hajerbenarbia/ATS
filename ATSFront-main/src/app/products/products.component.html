@@ -1,0 +1,63 @@
+<h1>Products List</h1>
+<br>
+<br>
+
+<div class="input-group mb-3">
+  <input type="search" class="form-control" id="searchName" name="key"  (ngModelChange)="search(key.value)" #key="ngModel" ngModel
+                    placeholder="Search products by Category...">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Search</button>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" (click)="click1()">Page 1</button>
+  <button type="button" class="btn btn-secondary" (click)="click2()">Page 2</button>
+  <button type="button" class="btn btn-secondary" (click)="click3()">Page 3</button>
+  <button type="button" class="btn btn-secondary" (click)="click4()">Page 4</button>
+  <button type="button" class="btn btn-secondary" (click)="click5()">Page 5</button>
+</div>
+
+<br>
+<br>
+
+<div *ngIf="!shopHidden">  
+ <div class="row">
+  <div *ngFor="let product of productsList"class="col-md-4">
+    <div class="card mb-4 product-wap rounded-0">
+        <div class="card rounded-0">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{product.idproduct}} - {{product.productName}} </h5>
+              <button class="btn btn-success text-white mt-2" (click)="Details(product)">Show Product Details</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="!detailsHidden" class="row">
+    <div class="card mb-4 product-wap rounded-0">
+        <div class="card rounded-0">
+          <h2>Details : </h2>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{detailsproduct.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"> Id : {{detailsproduct.idproduct}}  &nbsp; -  &nbsp;  {{detailsproduct.productName}} </h5>
+              <p class="card-text"><b>Category : </b> &nbsp; {{detailsproduct.category}}</p>
+              <p class="card-text"><b>Description : </b> &nbsp; {{detailsproduct.description}}</p>
+              <p class="card-text"><b>Price : </b> &nbsp; {{detailsproduct.price}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
